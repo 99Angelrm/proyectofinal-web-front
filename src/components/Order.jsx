@@ -13,8 +13,7 @@ const subir = (comida) => {
             direccion: comida.direccion,
             telefono: comida.telefono,
         })
-        .then((res) => {
-        });
+        .then((res) => {});
 };
 const Order = (props) => {
     const [comida, setcomida] = useState(null);
@@ -31,22 +30,32 @@ const Order = (props) => {
                     <img src={comida.src} alt="hola" height="200px" />
                     <h5 className="card-title">{comida.title}</h5>
                     <p className="card-text">{comida.text}.</p>
+
                     <div className="row">
                         <div className="col-3"></div>
                         <div className="col-6">
+                            <div>
+                                <h4>Ingredientes</h4>
+                            </div>
+                            <div className="d-flex justify-content-lg-between">
+                                {comida.ingredientes.map((item) => (
+                                    <p>{item}</p>
+                                ))}
+                            </div>
                             <form
                                 onSubmit={(e) => {
                                     e.preventDefault();
-                                    subir(comida);window.location.href = '/';
+                                    subir(comida);
+                                    window.location.href = "/";
                                 }}
                             >
-                                <div class="mb-3">
-                                    <label for="Nombre" class="form-label">
+                                <div className="mb-3">
+                                    <label for="Nombre" className="form-label">
                                         Nombre
                                     </label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         id="Nombre"
                                         aria-describedby="nombreHelp"
                                         onChange={(e) => {
@@ -57,17 +66,20 @@ const Order = (props) => {
                                             console.log(comida);
                                         }}
                                     />
-                                    <div id="nombreHelp" class="form-text">
+                                    <div id="nombreHelp" className="form-text">
                                         Persona que recibirá
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="Direccion" class="form-label">
+                                <div className="mb-3">
+                                    <label
+                                        for="Direccion"
+                                        className="form-label"
+                                    >
                                         Dirección
                                     </label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         id="Direccion"
                                         onChange={(e) =>
                                             setcomida({
@@ -77,18 +89,18 @@ const Order = (props) => {
                                         }
                                     />
                                 </div>
-                                <div class="mb-3">
+                                <div className="mb-3">
                                     <label
                                         for="telefono"
                                         name="telefono"
                                         pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                                        class="form-label"
+                                        className="form-label"
                                     >
                                         Teléfono
                                     </label>
                                     <input
                                         type="tel"
-                                        class="form-control"
+                                        className="form-control"
                                         id="telefono"
                                         onChange={(e) =>
                                             setcomida({
@@ -98,7 +110,10 @@ const Order = (props) => {
                                         }
                                     />
                                 </div>
-                                <button type="submit" class="btn btn-primary">
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                >
                                     Ordenar Ahora
                                 </button>
                             </form>

@@ -8,7 +8,7 @@ const Platillo = (props) => {
                 <i className="bi bi-arrow-return-right" onClick={null}></i>
             </div>
             <div className="card" style={{ width: "18rem" }} key={props.id}>
-                <img src={props.src} className="card-img-top" alt="img" />
+                <img src={props.src} className="card-img-top" alt="img" height="150px"/>
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>
                     <p className="card-text">{props.text}.</p>
